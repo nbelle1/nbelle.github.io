@@ -2850,7 +2850,7 @@ input[type="button"]:disabled,
     }
     
     .timeline-dot {
-        left: -0.7em; /* Adjusted for mobile to center on line */
+        left: -1.25em; /* Adjusted for mobile to center on line */
     }
     
     .timeline-item {
