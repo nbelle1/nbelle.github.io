@@ -2858,6 +2858,21 @@ input[type="button"]:disabled,
     }
 }
 
+#topnav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+}
+
+#topnav ul li {
+    margin: 0;
+    padding: 0;
+    flex: 1; /* Each item takes equal space */
+    text-align: center;
+}
+
 /* Header */
 
 #header {
