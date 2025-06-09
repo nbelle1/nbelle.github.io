@@ -2688,6 +2688,176 @@ input[type="button"]:disabled,
 	margin: 0;
 }
 
+/* Fixed thumbnail sizing */
+.work-item .image.fit.thumb {
+    width: 100%;
+    height: 300px; /* Fixed height for all thumbnails */
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.work-item .image.fit.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop to fill the container while maintaining aspect ratio */
+    object-position: center; /* Center the image when cropping */
+    display: block;
+}
+
+/* Awards and Honors Styling */
+.awards-list {
+    padding-left: 0;
+}
+
+.award-item {
+    margin-bottom: 1.5em;
+    padding-left: 0;
+}
+
+.award-item:last-child {
+    margin-bottom: 0;
+}
+
+.award-item h4 {
+    margin: 0 0 0.5em 0;
+    color: #787878;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.award-item .award-organization {
+    margin: 0 0 0.25em 0;
+    color: #787878;
+    font-weight: 500;
+    font-size: 0.95em;
+}
+
+.award-item .award-year {
+    margin: 0;
+    color: #999;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+/* Specific positioning for UCSB spotlight image */
+.work-item .image.fit.thumb img[src*="ucsb-spotlight"] {
+    object-position: top; /* Show the top of the image */
+}
+
+/* Specific positioning for lifesaver1 image */
+.work-item .image.fit.thumb img[src*="lifesaver"] {
+    object-position: bottom; /* Show the bottom of the image */
+}
+
+/* Ensure consistent spacing */
+.work-item h3 {
+    margin-top: 1em;
+}
+
+/* Resume link styling */
+#topnav ul li a.resume-link {
+    position: relative;
+    /* Removed: border-bottom: 1px dotted #787878; */
+}
+
+#topnav ul li a.resume-link:hover {
+    color: #49bf9d;
+    /* Removed: border-bottom-color: #49bf9d; */
+}
+
+#topnav ul li a.resume-link i {
+    font-size: 0.8em;
+    margin-left: 0.3em;
+}
+
+/* Experience Timeline Styling */
+.experience-subsection {
+    margin-bottom: 3em;
+}
+
+.experience-subsection h2 {
+    color: #787878; /* Same grey as other section titles */
+    font-size: 1.5em; /* Same size as other h2 section titles */
+    margin-bottom: 1.5em;
+    font-weight: 400; /* Same weight as other section titles */
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2em;
+}
+
+/* Vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5em;
+    top: 0.75em;
+    bottom: 5em;
+    width: 2px;
+    background: #e5e5e5;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2em;
+    padding-left: 1.5em;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline dots - solid grey and centered */
+.timeline-dot {
+    position: absolute;
+    left: -1.7em; /* Adjusted to center on the 2px line at 0.75em */
+    top: 0.5em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e5e5e5; /* Same color as the line */
+    border: none; /* Remove border */
+    z-index: 1;
+}
+
+.timeline-content h4 {
+    margin: 0 0 0.5em 0;
+    color: #787878;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.timeline-content .company {
+    margin: 0 0 0.25em 0;
+    color: #787878; /* Changed from green to grey */
+    font-weight: 500;
+    font-size: 0.95em;
+}
+
+.timeline-content .duration {
+    margin: 0;
+    color: #999;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 736px) {
+    .timeline {
+        padding-left: 1.5em;
+    }
+    
+    .timeline-dot {
+        left: -0.75em; /* Adjusted for mobile to center on line */
+    }
+    
+    .timeline-item {
+        padding-left: 1em;
+    }
+}
+
 /* Header */
 
 #header {
@@ -2798,6 +2968,137 @@ input[type="button"]:disabled,
 
 #footer .copyright li a {
 	color: inherit;
+}
+
+/* Work Item Overlay for Features */
+.work-item .image.thumb {
+    position: relative;
+}
+
+.work-item .image .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 1em;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.work-item .image:hover .overlay {
+    opacity: 1;
+}
+
+.work-item .image .overlay h3 {
+    margin: 0;
+    font-size: 0.9em;
+    color: white;
+    text-align: center;
+}
+
+/* Top Navigation */
+#topnav {
+    position: fixed;
+    top: 0;
+    left: 35%; /* Start where the main content begins */
+    right: 0;   /* Extend to the right edge */
+    z-index: 1000;
+    padding: 1em 4em; /* Match the main content padding */
+    background: #ffffff; /* White background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+    width: calc(100% - 35%); /* Match main content width */
+}
+
+#topnav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly across full width */
+    width: 100%;
+}
+
+#topnav ul li {
+    margin: 0;
+    padding: 0;
+    flex: 1; /* Each item takes equal space */
+    text-align: center; /* Center the text within each item */
+}
+
+#topnav ul li a {
+    color: #787878; /* Same dark grey as section titles */
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 400;
+    border-bottom: none;
+    transition: color 0.2s ease-in-out;
+    display: block; /* Make the entire area clickable */
+}
+
+#topnav ul li a:hover {
+    color: #49bf9d; /* Keep the same accent color on hover */
+    border-bottom-color: transparent;
+}
+
+/* Responsive navigation */
+@media screen and (max-width: 1280px) {
+    #topnav {
+        left: 30%;
+        width: calc(100% - 30%);
+        padding: 0.75em 3em;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    #topnav {
+        left: 0;
+        width: 100%;
+        padding: 0.75em 4em;
+    }
+    
+    #topnav ul li a {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    #topnav {
+        padding: 0.5em 1.5em;
+    }
+    
+    #topnav ul li a {
+        font-size: 0.75em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #topnav {
+        padding: 0.5em 1.5em;
+    }
+    
+    #topnav ul li a {
+        font-size: 0.7em;
+    }
+}
+
+#header .image.avatar {
+    width: 10em; /* Make the logo bigger (default is usually around 4-5em) */
+    height: 10em;
+    margin: 0 auto 1em auto; /* Center horizontally and add bottom margin */
+    display: block;
+}
+
+#header .image.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+#header .inner {
+    text-align: center; /* Center the content */
+    padding: 0em 0; /* Add some vertical padding */
 }
 
 /* Main */
@@ -3098,6 +3399,8 @@ body.is-touch .poptrox-popup .nav-previous,
 body.is-touch .poptrox-popup .closer {
 	opacity: 1.0 !important;
 }
+
+
 
 /* XLarge */
 
